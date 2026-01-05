@@ -3,53 +3,190 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Google Site Verification for log-ingestor-mssql -->
-<meta name="google-site-verification" content="t08PvE_RIUS1cY0xm6g1PTRVD-FQIF-ewQXSUYkF_Ns" />
+  <!-- Google Site Verification -->
+   <meta name="google-site-verification" content="t08PvE_RIUS1cY0xm6g1PTRVD-FQIF-ewQXSUYkF_Ns" />
 
-  <title>Log Ingestor – MSSQL Logger for Node.js</title>
+  <title>@log-ingestor/mssql – MSSQL Logger for Node.js</title>
 
   <meta
     name="description"
-    content="Disk-first Node.js logger with automatic ingestion into Microsoft SQL Server (MSSQL). No ELK, no log management headaches."
+    content="Disk-first Node.js logger with automatic ingestion into Microsoft SQL Server (MSSQL). No ELK, no Kafka, no log management headaches."
   />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --fg: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --card: #020617;
+      --border: #1e293b;
+      --code-bg: #020617;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #020617, #020617 60%, #020617);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin-top: 48px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--fg);
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #020617;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-right: 8px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 16px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      margin-top: 16px;
+    }
+
+    footer {
+      margin-top: 64px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>@log-ingestor/mssql</h1>
+  <div class="container">
+    <h1>@log-ingestor/mssql</h1>
 
-  <p>
-    Disk-first structured logger for Node.js with automatic ingestion into
-    <strong>Microsoft SQL Server (MSSQL)</strong>.
-  </p>
+    <div class="tagline">
+      Disk-first structured logger for Node.js with automatic ingestion into
+      <strong>Microsoft SQL Server (MSSQL)</strong>.
+    </div>
 
-  <p>
-    No ELK. No Kafka. No manual log management.
-  </p>
+    <div class="badge">No ELK</div>
+    <div class="badge">No Kafka</div>
+    <div class="badge">Crash-safe</div>
+    <div class="badge">Production-ready</div>
 
-  <h2>Links</h2>
+    <p>
+      Logs are written to disk first and ingested in the background by a native Go binary.
+      Your application never blocks on database writes.
+    </p>
 
-  <p>
-    📦 npm package:
-    <a href="https://www.npmjs.com/package/@log-ingestor/mssql">
-      https://www.npmjs.com/package/@log-ingestor/mssql
-    </a>
-  </p>
+    <div class="links">
+      <a href="https://www.npmjs.com/package/@log-ingestor/mssql">npm</a>
+      <a href="https://github.com/aritvyas/log-ingestor-mssql">GitHub</a>
+    </div>
 
-  <p>
-    📂 GitHub repository:
-    <a href="https://github.com/aritvyas/log-ingestor-mssql">
-      https://github.com/aritvyas/log-ingestor-mssql
-    </a>
-  </p>
+    <h2>How it works</h2>
+    <ul>
+      <li>Node.js app writes structured logs to disk</li>
+      <li>Background Go ingestor starts automatically</li>
+      <li>Logs are batched and inserted into MSSQL</li>
+      <li>Application never blocks on DB writes</li>
+    </ul>
 
-  <h2>How it works</h2>
-  <ul>
-    <li>Node.js app writes structured logs to disk</li>
-    <li>Background Go ingestor starts automatically</li>
-    <li>Logs are batched and inserted into MSSQL</li>
-    <li>Application never blocks on DB writes</li>
-  </ul>
+    <h2>Usage</h2>
+
+    <pre><code>const { createLogger } = require("@log-ingestor/mssql");
+
+const logger = createLogger({
+  service: {
+    name: "order-service",
+    version: "1.0.0"
+  },
+  logging: {
+    logDir: "./logs"
+  },
+  db: {
+    type: "mssql",
+    connection:
+      "Server=localhost,1433;" +
+      "Database=logsdb;" +
+      "User Id=sa;" +
+      "Password=***;" +
+      "Encrypt=true;" +
+      "TrustServerCertificate=true;"
+  }
+});
+
+logger.info("order created", { orderId: 123 });
+logger.error("payment failed");</code></pre>
+
+    <h2>What this is NOT</h2>
+    <ul>
+      <li>Not a console logger</li>
+      <li>Not an ELK stack</li>
+      <li>Not a metrics system</li>
+    </ul>
+
+    <footer>
+      © 2026 Arit Vyas · MIT License
+    </footer>
+  </div>
 </body>
 </html>
