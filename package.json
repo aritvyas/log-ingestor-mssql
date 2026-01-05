@@ -5,9 +5,9 @@
   "license": "MIT",
   "private": false,
   "main": "src/index.js",
-  "dependencies": {
-    "@log-ingestor/core": "^0.0.1"
-  },
+"dependencies": {
+  "@log-ingestor/core": "^0.2.0"
+},
   "files": [
     "src",
     "bin",
