@@ -1,0 +1,10 @@
+node_modules/
+logs/
+ingestor.config.json
+*.log
+
+# OS junk
+.DS_Store
+
+# npm
+npm-debug.log*

@@ -1,0 +1,42 @@
+{
+  "name": "@log-ingestor/mssql",
+  "version": "0.0.1",
+  "description": "Disk-first structured logger for Node.js with local ingestion to Microsoft SQL Server (MSSQL)",
+  "license": "MIT",
+  "private": false,
+  "main": "src/index.js",
+  "dependencies": {
+    "@log-ingestor/core": "^0.0.1"
+  },
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "logger",
+    "logging",
+    "structured-logging",
+    "disk-logging",
+    "database-logging",
+    "node-logger",
+    "mssql",
+    "sql-server",
+    "enterprise-logging",
+    "backend-logging",
+    "durable-logging"
+  ],
+  "author": "Arit Vyas <aritvyas@hotmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aritvyas/unified-logger-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aritvyas/unified-logger-sdk/issues"
+  },
+  "homepage": "https://github.com/aritvyas/unified-logger-sdk#readme",
+  "engines": {
+    "node": ">=16"
+  }
+}
