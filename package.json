@@ -1,13 +1,13 @@
 {
   "name": "@log-ingestor/mssql",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Disk-first structured logger for Node.js with local ingestion to Microsoft SQL Server (MSSQL)",
   "license": "MIT",
   "private": false,
   "main": "src/index.js",
-"dependencies": {
-  "@log-ingestor/core": "^0.2.0"
-},
+  "dependencies": {
+    "@log-ingestor/core": "^0.2.0"
+  },
   "files": [
     "src",
     "bin",
