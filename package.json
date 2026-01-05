@@ -6,7 +6,7 @@
   "private": false,
   "main": "src/index.js",
   "dependencies": {
-    "@log-ingestor/core": "^0.2.0"
+    "@log-ingestor/core": "^0.3.0"
   },
   "files": [
     "src",
