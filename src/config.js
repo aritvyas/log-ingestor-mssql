@@ -7,10 +7,16 @@ function buildIngestorConfig({ logDir, db, batch }) {
     throw new Error("db.type and db.connection are required");
   }
 
+  if (!/Database=/i.test(db.connection)) {
+    throw new Error(
+      "MSSQL connection string must include Database=<db_name>"
+    );
+  }
+
   return {
     logDir,
     db: {
-      type: db.type,                
+      type: db.type,
       connection: db.connection,
       table: db.table || "unified_logs"
     },

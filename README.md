@@ -2,6 +2,7 @@
 
 Disk-first Node.js logger with automatic ingestion into Microsoft SQL Server — no ELK, no log management headaches.
 
+⚠️ **MSSQL database name is mandatory in the connection string.**
 This package is the **MSSQL adapter** for the `log-ingestor` ecosystem.  
 It writes structured logs to disk and reliably ingests them into **Microsoft SQL Server** using a high‑performance background ingestor.
 
@@ -58,7 +59,13 @@ const logger = createLogger({
   },
   db: {
     type: "mssql",
-    connection: process.env.MSSQL_CONNECTION
+    connection:
+      "Server=localhost,1433;" +
+      "Database=logsdb;" +
+      "User Id=sa;" +
+      "Password=***;" +
+      "Encrypt=true;" +
+      "TrustServerCertificate=true;"
   },
   batch: {
     size: 200
