@@ -1,5 +1,7 @@
 # @log-ingestor/mssql
 
+📘 **Article:** Logging Node.js Applications Directly into MSSQL — Without ELK or Kafka  
+https://medium.com/@aritvyas/logging-node-js-applications-directly-into-mssql-without-elk-or-kafka-57d668b54077
 Disk-first Node.js logger with automatic ingestion into Microsoft SQL Server — no ELK, no log management headaches.
 
 ⚠️ **MSSQL database name is mandatory in the connection string.**
